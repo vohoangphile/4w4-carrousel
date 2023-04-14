@@ -22,6 +22,7 @@
             // img.classList.add()
             let img = document.createElement('img');
             img.src = elem.getAttribute('src');
+            img.classList.add('carrousel__img');
             console.log(img.src);
             carrousel__figure.appendChild(img);
         }
