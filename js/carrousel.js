@@ -31,6 +31,8 @@
      * @param {*} elem une image de la galerie
      */
     let position = 0;
+    let index = 0;
+    let ancienIndex = -1;
     function ajouter_une_image_dans_carrousel(elem) {
         // console.log(elem.getAttribute('src'));
             // img.classList.add()
@@ -43,14 +45,22 @@
 
     function ajouter_un_radio_bouton_dans_le_carrousel()
     {
-        let rad = document.createElement('input');
-        rad.setAttribute('type', 'radio')
-        rad.setAttribute('name', 'carrousel__rad')
+        let rad = document.createElement('input')
+        rad.setAttribute('type','radio')
+        rad.setAttribute('name','carrousel__rad')
         rad.classList.add('carrousel__rad')
-        rad.dataset.index = position // on ajoute un index au image
+        rad.dataset.index = position
+        rad.addEventListener('mousedown', function(){
+            index =  this.dataset.index
+            if (ancienIndex != -1){
+            carrousel__figure.children[ancienIndex].style.opacity = "0"
+            }
+            //console.log(this.dataset.index)
+            carrousel__figure.children[index].style.opacity = "1"
+            ancienIndex = index
+        })
         position = position + 1 // incrémentation de la position
-        carrousel__form.append(rad);
-    }
-        
+        carrousel__form.append(rad)
+    }   
 })()
 
