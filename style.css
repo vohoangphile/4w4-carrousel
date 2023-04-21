@@ -44,10 +44,29 @@
   position: absolute;
   bottom: 0;
   border: 1px solid #fff;
-  width: 100px;
+  width: 100%;
 }
 
 .carrousel__rad {
   display: inline-block;
   padding: 4px;
+}
+
+.conteneur-fleche {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fleche__1 {
+  font-size: 4em;
+  z-index: 100;
+  color: orange;
+  cursor: pointer;
+}
+
+.fleche__2 {
+  font-size: 4em;
+  z-index: 100;
+  color: orange;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
