@@ -8,13 +8,14 @@
     console.log(carrousel__form.tagName); // conteneur du radio-boutons
     let galerie = document.querySelector('.galerie');
     let galerie__img = galerie.querySelectorAll('img');
-
+    let galerie__menu = document.querySelector('figure');
     let fleche__1 = document.querySelector('.fleche__1');
     let fleche__2 = document.querySelector('.fleche__2');
+    console.log("Tableau :", galerie__img.length);
 
-    carrousel__ouvrir.addEventListener('mousedown', function(){
-        index=0
-  
+    galerie__menu.addEventListener('mousedown', function(){
+        
+         console.log("touche");
         carrousel.classList.add('carrousel--activer')
         affiche_image_carrousel()
      })
@@ -30,15 +31,17 @@
   let ancienIndex = -1
   /* -- boucle qui permet construire le carrousel */
      for (const elem of galerie__img){
-        elem.dataset.index = position
+        elem.dataset.index = position //attribue une valeur à l'attribut, Cet attribut peut être utilisé plus tard pour identifier l'index de l'image sur laquelle l'utilisateur a cliqué.
         /* en cliquant sur une image de la galerie */
         elem.addEventListener('mousedown', function(e){
+         console.log("click sur image", elem);
+         console.log("dataset", e.target.dataset.index);
            /*
            avant d'ouvrir la boîte modale il faut vérifier si elle n'est pas déjà ouverte
            https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/
            la fonction contains() vous permettra de faire cette vérification
            */
-           index = e.target.dataset.index
+           index = e.target.dataset.index /* récupère l'index de l'image sur laquelle l'utilisateur a cliqué à partir de son attribut data-index. Cette valeur est ensuite utilisée pour afficher l'image correspondante dans la boîte modale.*/
            affiche_image_carrousel()
         })
         ajouter_une_image_dans_courrousel(elem)
@@ -55,7 +58,6 @@
      let img = document.createElement('img')
      img.classList.add('carrousel__img')
      img.src = elem.src
-     // console.log(img.src)
      carrousel__figure.appendChild(img);
   }
   
@@ -77,15 +79,38 @@
    * Affiche la nouvelle image du carrousel
    */
   function affiche_image_carrousel(){
+   console.log("image function dans index", index);
      if (ancienIndex != -1){
-        carrousel__figure.children[ancienIndex].style.opacity = "0"
+        carrousel__figure.children[ancienIndex].style.opacity = "0" //est utilisé pour garder en mémoire l'index de l'image précédemment affichée. Cela permet de réduire l'opacité de cette image lorsqu'une nouvelle image est affichée, pour créer l'effet de transition.
       //carrousel__form.children[ancienIndex].checked = false
         //carrousel__figure.children[ancienIndex].classList.remove('carrousel__img--activer')
        }
        //console.log(this.dataset.index)
-       carrousel__figure.children[index].style.opacity = "1"
+       carrousel__figure.children[index].style.opacity = "1" //pour sélectionner l'élément HTML correspondant à l'index donné (image du carrousel à afficher). Ensuite, on modifie le style de cet élément pour le rendre visible en changeant son opacité
       // carrousel__figure.children[index].classList.add('carrousel__img--activer')
        ancienIndex = index
   }
+    console.log("Voici", fleche__1);
+    fleche__1.addEventListener('click', function(){
+        console.log("ALAIDE");
+        console.log("index ancien", ancienIndex);
+        index--;
+        if(index == -1) {
+         index = 6;
+        }
+         affiche_image_carrousel()
+         
+    })
+    fleche__2.addEventListener('click', function(){
+        console.log("AYUDA");
+        console.log("fleche");
+        console.log("index", index);
+        index++; 
+        if(index == 7) {
+         console.log("index script", index);
+         index = 1;
+        }
+        affiche_image_carrousel()
+    })
 })()
 
