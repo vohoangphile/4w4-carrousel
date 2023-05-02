@@ -5,13 +5,13 @@
     let carrousel__x = document.querySelector('.carrousel__x')
     let carrousel__figure = document.querySelector('.carrousel__figure')
     let carrousel__form = document.querySelector('.carrousel__form');
-    console.log(carrousel__form.tagName); // conteneur du radio-boutons
     let galerie = document.querySelector('.galerie');
     let galerie__img = galerie.querySelectorAll('img');
     let galerie__menu = document.querySelector('figure');
     let fleche__1 = document.querySelector('.fleche__1');
     let fleche__2 = document.querySelector('.fleche__2');
-    console.log("Tableau :", galerie__img.length);
+   //  console.log("Tableau :", galerie__img.length);
+   //  console.log(carrousel__form.tagName); // conteneur du radio-boutons
 
     galerie__menu.addEventListener('mousedown', function(){
         
@@ -95,8 +95,7 @@
   }
     console.log("Voici", fleche__1);
     fleche__1.addEventListener('click', function(){
-        console.log("ALAIDE");
-        console.log("index ancien", ancienIndex);
+      //   console.log("index ancien", ancienIndex);
         index--;
         if(index == -1) {
          index = 6;
@@ -105,12 +104,9 @@
          
     })
     fleche__2.addEventListener('click', function(){
-        console.log("AYUDA");
-        console.log("fleche");
-        console.log("index", index);
+      //   console.log("index", index);
         index++; 
         if(index == 7) {
-         console.log("index script", index);
          index = 1;
         }
         affiche_image_carrousel()
