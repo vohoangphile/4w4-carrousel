@@ -81,13 +81,16 @@
   function affiche_image_carrousel(){
    console.log("image function dans index", index);
      if (ancienIndex != -1){
-        carrousel__figure.children[ancienIndex].style.opacity = "0" //est utilisé pour garder en mémoire l'index de l'image précédemment affichée. Cela permet de réduire l'opacité de cette image lorsqu'une nouvelle image est affichée, pour créer l'effet de transition.
-      //carrousel__form.children[ancienIndex].checked = false
-        //carrousel__figure.children[ancienIndex].classList.remove('carrousel__img--activer')
+      //   carrousel__figure.children[ancienIndex].style.opacity = "0" //est utilisé pour garder en mémoire l'index de l'image précédemment affichée. Cela permet de réduire l'opacité de cette image lorsqu'une nouvelle image est affichée, pour créer l'effet de transition.
+   
+        carrousel__figure.children[ancienIndex].classList.remove('carrousel__img--activer')
+        carrousel__form.children[ancienIndex].checked = false
        }
        //console.log(this.dataset.index)
-       carrousel__figure.children[index].style.opacity = "1" //pour sélectionner l'élément HTML correspondant à l'index donné (image du carrousel à afficher). Ensuite, on modifie le style de cet élément pour le rendre visible en changeant son opacité
-      // carrousel__figure.children[index].classList.add('carrousel__img--activer')
+      //  carrousel__figure.children[index].style.opacity = "1" //pour sélectionner l'élément HTML correspondant à l'index donné (image du carrousel à afficher). Ensuite, on modifie le style de cet élément pour le rendre visible en changeant son opacité
+      
+      carrousel__figure.children[index].classList.add('carrousel__img--activer')
+      carrousel__form.children[index].checked = true
        ancienIndex = index
   }
     console.log("Voici", fleche__1);

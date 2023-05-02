@@ -38,6 +38,7 @@
     width: 100%;
     height: auto;
     opacity: 0;
+    transition: opacity 0.5s ;
 }
 
 .carrousel__form {
@@ -80,4 +81,6 @@
     color: rgb(0, 183, 255);
     cursor: pointer;
 }
-
+.carrousel__img--activer {
+    opacity: 1;
+}
