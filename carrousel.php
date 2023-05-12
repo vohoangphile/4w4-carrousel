@@ -32,14 +32,17 @@ function creation_carrousel()
 {
     return "
     <div class='carrousel'>
-    <div class='conteneur-fleche'>
-    <div class='fleche__1'>&#8592;</div>
-    <div class='fleche__2'>&#8594;</div>
-    </div>
+    
     <button class='carrousel__x'>X</button>
     <figure class='carrousel__figure'></figure>
     <form class='carrousel__form'></form>
+    <div class='conteneur-fleche'>
+    <div class='fleche__1'>&#8249;</div>
+    <div class='fleche__2'>&#8250;</div>
+    </div>
     </div> <!fin du carrousel -->
+
+    
     ";
 }
 add_shortcode('carrousel', 'creation_carrousel');

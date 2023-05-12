@@ -43,6 +43,7 @@
            */
            index = e.target.dataset.index /* récupère l'index de l'image sur laquelle l'utilisateur a cliqué à partir de son attribut data-index. Cette valeur est ensuite utilisée pour afficher l'image correspondante dans la boîte modale.*/
            affiche_image_carrousel()
+         
         })
         ajouter_une_image_dans_courrousel(elem)
         ajouter_un_radio_bouton_dans_carrousel()
